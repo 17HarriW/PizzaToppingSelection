@@ -33,16 +33,16 @@ namespace PizzaToppingSelection
             {
                 case "rock":
                 case "jazz":
-                    Console.WriteLine("Respectable if you get something good");
+                    Print("Respectable if you get something good",ConsoleColor.Yellow);
                     break;
                 case "rap":
                 case "drill":
-                    Console.WriteLine("I hate you");
+                    Print("I hate you", ConsoleColor.Red);
                     break;
                 case "pop":
                 case "edm":
                 case "trance":
-                    Console.WriteLine("Hmm, call me");
+                    Print("Hmm, call me", ConsoleColor.Blue);
                     break;
                 default:
                     Console.WriteLine("Wat?");
@@ -53,10 +53,22 @@ namespace PizzaToppingSelection
         }
 
         /// <summary>
+        /// Prints coloured text
+        /// </summary>
+        /// <param name="text"> Text displayed </param>
+        /// <param name="color"> Colour text is displayed in</param>
+        private static void Print(string text, ConsoleColor colour)
+        {
+            Console.ForegroundColor = colour;
+            Console.WriteLine(text);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        /// <summary>
         /// Ask user for an input
         /// </summary>
-        /// <param name="question"> The input being asked </param>
-        /// <returns> The answer to the input </returns>
+        /// <param name="question"> Input being asked </param>
+        /// <returns> Answer to input </returns>
         private static string Input(string question)
         {
             Console.Write(question);
